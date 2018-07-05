@@ -1,9 +1,9 @@
 # List of supported compilers
-include compilers.mk
+include build/compilers.mk
 
 # Tools for the shell:
 # 1- SEPARATOR, 2- PATH_SEPARATOR, 3- TOUCH, 4- COPY, 5- RENAME, 6- DEL, 7- LOOK_DIR, 8- MKDIR, 9- CPDIR, 10- RMDIR
-include $(OS).mk
+include build/$(OS).mk
 
 # Add Toolchain to PATH
 export PATH := $(realpath $($(COMPILER)_PATH))$(PATH_SEPARATOR)$(PATH)

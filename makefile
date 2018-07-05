@@ -1,6 +1,6 @@
 # TO EDIT
-NFLLIB_HOME :=
-LIBS_HOME   :=
+NFLLIB_HOME := /home/liu/nfllib/
+LIBS_HOME   := /usr/include
 
 
 
@@ -104,7 +104,6 @@ optimize_cover:
 	@$(MAKE) --silent COVERAGES=GENERATE exe run
 	@$(MAKE) --silent COVERAGES=USE clean init $(OUTPUT) clean_coverage
 # -------------------------------------------------------------------
-
+include build/makefile.mk
 # include default makefile
-include makefile.mk
 ## Targets: clean clean_objs clean_coverage clean_tmps init init_test exe libstatic libshare libshare_test

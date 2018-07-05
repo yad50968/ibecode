@@ -34,7 +34,9 @@ int main(void) {
 
 	std::cout << "Before User" << std::endl;
 	User sender{NFL_POLY_N, NFL_POLY_Q_BITS, modulo, tau_1024_ibe, 147.47, 80, 17, &thirdParty};
+
 	sender.extractPrivateKey();
+
 	sender.setEncrypt(505);
 
 
@@ -51,6 +53,8 @@ int main(void) {
 			sender.encrypt(ciphertext, m);
 		}
 	};
+
+	std::cout << "3" << std::endl;
 	pool[0] = std::thread(lambdaEnc, ciphertext, 100);
 	pool[1] = std::thread(lambdaEnc, ciphertext + NFL_POLY_Q_BITS + 3, 100);
 	auto start = std::chrono::high_resolution_clock::now();

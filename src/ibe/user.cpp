@@ -156,6 +156,7 @@ void Ibe::User::encapsulation::inverse_poly(Poly_t * output, Poly_t & input) {
 Ibe::User::User(const uint32_t n, const uint32_t k, const uint64_t q, const double_t tau, const double_t gamma, const uint32_t lambda, \
 	            const NFL_POLY_COEF_TYPE id, TrustedParty * trustedParty) noexcept : \
 impl(new encapsulation {.dimension = n, .param = k, .modulus = q}) {
+
 	// initialize global parameters
 	impl->id = id;
 	impl->m = k + 2;
@@ -169,8 +170,11 @@ impl(new encapsulation {.dimension = n, .param = k, .modulus = q}) {
 	impl->fastGaussNoiseE0.reset(new fastGauss_t(tau, lambda, n));
 	impl->gaussianNoiseE0.reset(new Gauss_t(impl->fastGaussNoiseE0.get()));
 
-	impl->fastGaussNoiseE1.reset(new fastGauss_t(gamma, lambda, n));
+
+
+	impl->fastGaussNoiseE1.reset(new fastGauss_t(tau, lambda, n));
 	impl->gaussianNoiseE1.reset(new Gauss_t(impl->fastGaussNoiseE1.get()));
+
 
 	impl->fastGaussNoiseE2.reset(new fastGauss_t(tau, lambda, n));
 	impl->gaussianNoiseE2.reset(new Gauss_t(impl->fastGaussNoiseE2.get()));
